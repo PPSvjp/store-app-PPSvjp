@@ -150,7 +150,7 @@ spec:
       containers:
       - name: app
         image: store-app:latest
-        imagePullPolicy: Never
+        imagePullPolicy: IfNotPresent
 
         ports:
         - containerPort: 8888
