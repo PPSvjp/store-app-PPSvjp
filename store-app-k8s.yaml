@@ -68,7 +68,6 @@ spec:
         image: postgres:15
 
         securityContext:
-          runAsNonRoot: true
           allowPrivilegeEscalation: false
         ports:
         - containerPort: 5432
@@ -152,7 +151,6 @@ spec:
         imagePullPolicy: Never
 
         securityContext:
-          runAsNonRoot: true
           allowPrivilegeEscalation: false
 
         ports:
