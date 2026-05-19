@@ -70,8 +70,6 @@ spec:
         securityContext:
           runAsNonRoot: true
           allowPrivilegeEscalation: false
-          readOnlyRootFilesystem: true
-
         ports:
         - containerPort: 5432
 
@@ -156,7 +154,6 @@ spec:
         securityContext:
           runAsNonRoot: true
           allowPrivilegeEscalation: false
-          readOnlyRootFilesystem: true
 
         ports:
         - containerPort: 8888
