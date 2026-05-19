@@ -63,11 +63,14 @@ spec:
         app: store-db
 
     spec:
-      nodeSelector:          # ← AQUÍ VA LA MAGIA
-        app-role: backend    # Solo irá a nodos con esta etiqueta
       containers:
       - name: postgres
         image: postgres:15
+
+        securityContext:
+          runAsNonRoot: true
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
 
         ports:
         - containerPort: 5432
@@ -145,12 +148,15 @@ spec:
         app: store-app
 
     spec:
-      nodeSelector:          # ← AQUÍ VA LA MAGIA
-        app-role: frontend   # Solo irá a nodos con esta etiqueta
       containers:
       - name: app
         image: store-app:latest
         imagePullPolicy: Never
+
+        securityContext:
+          runAsNonRoot: true
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
 
         ports:
         - containerPort: 8888
